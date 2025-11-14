@@ -34,6 +34,16 @@ async function run() {
             res.send(result)
         })
 
+        app.post('/models',async(req,res)=>{
+            const data = req.body;
+            console.log(data)
+            const result = await modelsCollection.insertOne(data)
+            res.send({
+                success:true,
+                result
+            })
+        })
+
 
         app.get('/', (req, res) => {
             res.send('Hello World!')
