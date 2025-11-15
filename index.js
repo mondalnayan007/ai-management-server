@@ -1,4 +1,4 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const express = require('express');
 const cors = require('cors')
 const app = express()
@@ -32,6 +32,18 @@ async function run() {
         app.get('/models',async(req,res)=>{
             const result =await modelsCollection.find().toArray()
             res.send(result)
+        })
+
+        app.get('/models/:id',async(req,res)=>{
+
+              const {id} = req.params
+
+              const result = await modelsCollection.findOne({_id: new ObjectId(id)})
+
+              res.send({
+                success:true,
+                result
+              })
         })
 
         app.post('/models',async(req,res)=>{
