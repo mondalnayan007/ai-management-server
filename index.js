@@ -46,6 +46,39 @@ async function run() {
               })
         })
 
+        app.put('/models/:id',async(req,res)=>{
+             const {id} = req.params
+             const data = req.body
+             const objectId = new ObjectId(id) 
+             const filter = {_id : objectId}
+             const update = {
+                $set : data
+             }
+             
+
+              const result = await modelsCollection.updateOne(filter,update)
+
+              res.send({
+                success:true,
+                result
+              })
+        })
+        app.delete('/models/:id',async(req,res)=>{
+             const {id} = req.params
+             
+             const objectId = new ObjectId(id) 
+             const filter = {_id : objectId}
+           
+            
+
+              const result = await modelsCollection.deleteOne(filter)
+
+              res.send({
+                success:true,
+                result
+              })
+        })
+
         app.post('/models',async(req,res)=>{
             const data = req.body;
             console.log(data)
@@ -54,6 +87,13 @@ async function run() {
                 success:true,
                 result
             })
+        })
+
+        // latest 6 models
+
+        app.get('/latest-models', async (req,res)=>{
+            const result = await modelsCollection.find().sort({createdAt: 'asc'}).limit(6).toArray()
+            res.send(result)
         })
 
 
