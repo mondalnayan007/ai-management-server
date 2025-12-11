@@ -182,15 +182,14 @@ async function run() {
 
     let filterQuery = {};
 
-  
+    // 🔍 Search by name
     if (search) {
         filterQuery.name = { $regex: search, $options: "i" };
     }
 
-   
+    // 🏷 Filter by category (framework)
     if (category) {
-        filterQuery.framework = category; 
-        
+        filterQuery.framework = category;
     }
 
     const result = await modelsCollection.find(filterQuery).toArray();
