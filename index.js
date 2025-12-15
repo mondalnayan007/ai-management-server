@@ -14,13 +14,7 @@ app.use(cors())
 app.use(express.json())
 
 
-// // verify token middleware
 
-// async function verifyToken(req, res, next) {
-//     try {
-//         let token;
-//         await admin.auth().verifyIdToken(token)
-//         next()
 
 //     } catch (error) {
 //         return res.status(401).send({
