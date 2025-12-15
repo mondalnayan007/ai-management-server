@@ -3,10 +3,10 @@ const express = require('express');
 const cors = require('cors')
 const app = express()
 const port = process.env.PORT || 3000
-// const admin = require("firebase-admin");
+
 require('dotenv').config()
 
-// const serviceAccount = require("./serviceKey.json");
+
 
 // middlewires
 
