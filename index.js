@@ -15,7 +15,12 @@ app.use(express.json())
 
 
 
-
+// function verifyJWT(req, res, next) {
+//    console.log('hitting verify jwt')
+//     try {
+//         const authorization = req.headers.authorization
+//         if (!authorization) {
+//   
 //     } catch (error) {
 //         return res.status(401).send({
 //             message:'Unauthorized access'
