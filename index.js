@@ -13,12 +13,12 @@ require('dotenv').config()
 app.use(cors())
 app.use(express.json())
 
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount)
-// });
-//     const token = authorization.split(' ')[1]
 
+// // verify token middleware
+
+// async function verifyToken(req, res, next) {
 //     try {
+//         let token;
 //         await admin.auth().verifyIdToken(token)
 //         next()
 
