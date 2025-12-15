@@ -15,24 +15,6 @@ app.use(express.json())
 
 
 
-// function verifyJWT(req, res, next) {
-//    console.log('hitting verify jwt')
-//     try {
-//         const authorization = req.headers.authorization
-//         if (!authorization) {
-//   
-//     } catch (error) {
-//         return res.status(401).send({
-//             message:'Unauthorized access'
-//         })
-
-//     }
-// }
-
-
-
-
-
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.PASSWORD}@cluster0.kc2s7sf.mongodb.net/?appName=Cluster0`;
 
 const client = new MongoClient(uri, {
