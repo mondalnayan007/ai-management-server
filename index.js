@@ -168,13 +168,7 @@ async function run() {
     res.send(result);
 });
 
-        // // filter api
-        // app.get('/filter', async(req,res)=>{
-        //     const filter_text = req.query.filter;
-        //     const result = await modelsCollection.find({framework:{$regex:search_text,$options:'i'}}).toArray()
-        //     res.send(result)
-        // })
-
+      
 
         app.get('/', (req, res) => {
             res.send('Server is running properly')
