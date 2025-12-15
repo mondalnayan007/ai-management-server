@@ -16,15 +16,6 @@ app.use(express.json())
 // admin.initializeApp({
 //   credential: admin.credential.cert(serviceAccount)
 // });
-
-
-// const verifyToken = async (req,res,next)=>{
-//     const authorization = req.headers.authorization
-//     if(!authorization){
-//          return res.status(401).send({
-//             message:'Unauthorized access.token not found '
-//         })
-//     }
 //     const token = authorization.split(' ')[1]
 
 //     try {
@@ -57,7 +48,7 @@ const client = new MongoClient(uri, {
 async function run() {
     try {
 
-        await client.connect();
+        // await client.connect();
 
         const db = client.db('models-db')
         const modelsCollection = db.collection('models')
@@ -205,10 +196,10 @@ async function run() {
 
 
         app.get('/', (req, res) => {
-            res.send('Hello World!')
+            res.send('Server is running properly')
         })
 
-        await client.db("admin").command({ ping: 1 });
+        // await client.db("admin").command({ ping: 1 });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
     } finally {
         
